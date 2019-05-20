@@ -101,11 +101,13 @@ DecoupledEditor.defaultConfig = {
 		styles: [
 			'full',
 			'alignLeft',
+			'alignCenter',
 			'alignRight'
 		],
 		toolbar: [
-			'imageStyle:alignLeft',
 			'imageStyle:full',
+			'imageStyle:alignLeft',
+			'imageStyle:alignCenter',
 			'imageStyle:alignRight',
 			'|',
 			'imageTextAlternative'
