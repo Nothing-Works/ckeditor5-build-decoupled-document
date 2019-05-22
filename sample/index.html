@@ -53,9 +53,8 @@
 			overflow-y: scroll;
 		}
 
-		.document-editor__editable-container .ck-editor__editable {
+		.document-editor__editable-container .document-editor__editable.ck-editor__editable {
 			/* Set the dimensions of the "page". */
-			width: 15.8cm;
 			min-height: 21cm;
 
 			/* Keep the "page" off the boundaries of the container. */
@@ -70,6 +69,18 @@
 
 			/* Center the "page". */
 			margin: 0 auto;
+		}
+
+		.ck-content .image>figcaption {
+			color: #333;
+			background-color: #f7f7f7;
+			padding: .6em;
+			font-size: .75em;
+			outline-offset: -1px;
+		}
+
+		.ck .ck-editor__nested-editable {
+			border: 1px solid transparent;
 		}
 
 		/* Set the default font for the "page" of the content. */
