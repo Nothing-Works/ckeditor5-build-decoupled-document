@@ -34,6 +34,7 @@ import PasteFromOffice from '@ckeditor/ckeditor5-paste-from-office/src/pastefrom
 import Table from '@ckeditor/ckeditor5-table/src/table';
 import TableToolbar from '@ckeditor/ckeditor5-table/src/tabletoolbar';
 import Base64UploadAdapter from './plugins/uploadadapter';
+import Placeholder from './plugins/placeholder/placeholder';
 
 export default class DecoupledEditor extends DecoupledEditorBase {}
 
@@ -66,7 +67,8 @@ DecoupledEditor.builtinPlugins = [
 	PasteFromOffice,
 	Table,
 	TableToolbar,
-	Base64UploadAdapter
+	Base64UploadAdapter,
+	Placeholder
 ];
 
 // Editor configuration.
