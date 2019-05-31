@@ -8,7 +8,6 @@ export default class PlaceholderEditing extends Plugin {
 		return [ Widget ];
 	}
 	init() {
-		console.log( 'editing is called' );
 		this._defineSchema();
 		this._defineConverters();
 
@@ -17,6 +16,10 @@ export default class PlaceholderEditing extends Plugin {
 		this.editor.editing.mapper
 			.on( 'viewToModelPosition',
 				viewToModelPositionOutsideModelElement( this.editor.model, viewElement => viewElement.hasClass( 'placeholder' ) ) );
+
+		this.editor.config.define( 'placeholder', {
+			types: [ 'date', 'first name', 'surname' ]
+		} );
 	}
 
 	_defineSchema() {
@@ -64,7 +67,7 @@ export default class PlaceholderEditing extends Plugin {
 			const placeholderView = viewWriter.createContainerElement( 'span', {
 				class: 'placeholder'
 			} );
-			const innerText = viewWriter.createText( '{' + name + '}' );
+			const innerText = viewWriter.createText( '{{' + name + '}}' );
 			viewWriter.insert( viewWriter.createPositionAt( placeholderView, 0 ), innerText );
 			return placeholderView;
 		}

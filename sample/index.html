@@ -175,12 +175,13 @@ Preserve the relative scale, though. */
 	<script src="../build/ckeditor.js"></script>
 	<script>
 		DecoupledEditor
-			.create(document.querySelector('.document-editor__editable'), {})
+			.create(document.querySelector('.document-editor__editable'), {
+				placeholderConfig: {
+					types: ['date', 'color', 'first name', 'andy']
+				}
+			})
 			.then(editor => {
 				CKEditorInspector.attach('editor', editor);
-				editor.execute('placeholder', {
-					value: 'time'
-				});
 				const toolbarContainer = document.querySelector('.document-editor__toolbar');
 				toolbarContainer.appendChild(editor.ui.view.toolbar.element);
 				window.editor = editor;

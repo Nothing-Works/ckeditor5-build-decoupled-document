@@ -98,7 +98,9 @@ DecoupledEditor.defaultConfig = {
 			'mediaEmbed',
 			'|',
 			'undo',
-			'redo'
+			'redo',
+			'|',
+			'placeholder'
 		]
 	},
 	image: {
