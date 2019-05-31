@@ -8,8 +8,8 @@ export default class PlaceHolderUI extends Plugin {
 	init() {
 		const editor = this.editor;
 		const t = editor.t;
-		const placeholderNames = editor.config.get( 'placeholderConfig.types' );
-		const placeholderLabelText = editor.config.get( 'placeholderLabelText.text' );
+		const placeholderNames = editor.config.get( 'placeholderConfig.mergeFields' );
+		const placeholderLabelText = editor.config.get( 'placeholderConfig.label' );
 		editor.ui.componentFactory.add( 'placeholder', locale => {
 			const dropdownView = createDropdown( locale );
 

@@ -17,8 +17,8 @@ export default class PlaceholderEditing extends Plugin {
 			.on( 'viewToModelPosition',
 				viewToModelPositionOutsideModelElement( this.editor.model, viewElement => viewElement.hasClass( 'placeholder' ) ) );
 
-		this.editor.config.define( 'placeholderConfig', { types: [] } );
-		this.editor.config.define( 'placeholderLabelText', { text: 'Placeholder' } );
+		this.editor.config.define( 'placeholderConfig',
+			{ mergeFields: [], label: 'Placeholder' } );
 	}
 
 	_defineSchema() {

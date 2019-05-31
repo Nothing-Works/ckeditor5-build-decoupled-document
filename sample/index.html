@@ -171,20 +171,16 @@ Preserve the relative scale, though. */
 			</div>
 		</div>
 	</div>
-	<script src="../node_modules/@ckeditor/ckeditor5-inspector/build/inspector.js"></script>
 	<script src="../build/ckeditor.js"></script>
 	<script>
 		DecoupledEditor
 			.create(document.querySelector('.document-editor__editable'), {
 				placeholderConfig: {
-					types: ['date', 'color', 'first name', 'andy', 'test']
-				},
-				placeholderLabelText: {
-					text: 'Insert Merge Field'
+					mergeFields: ['date', 'color', 'first name', 'andy', 'test'],
+					label: 'Insert Merge Field'
 				}
 			})
 			.then(editor => {
-				CKEditorInspector.attach('editor', editor);
 				const toolbarContainer = document.querySelector('.document-editor__toolbar');
 				toolbarContainer.appendChild(editor.ui.view.toolbar.element);
 				window.editor = editor;
