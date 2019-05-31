@@ -177,7 +177,10 @@ Preserve the relative scale, though. */
 		DecoupledEditor
 			.create(document.querySelector('.document-editor__editable'), {
 				placeholderConfig: {
-					types: ['date', 'color', 'first name', 'andy']
+					types: ['date', 'color', 'first name', 'andy', 'test']
+				},
+				placeholderLabelText: {
+					text: 'Insert Merge Field'
 				}
 			})
 			.then(editor => {

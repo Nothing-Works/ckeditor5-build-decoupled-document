@@ -9,3 +9,7 @@
 .placeholder::selection {
 	display: none;
 }
+
+.placeholderLabel .ck-button__label {
+	width: max-content !important;
+}
