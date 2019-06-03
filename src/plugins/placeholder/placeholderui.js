@@ -34,15 +34,14 @@ export default class PlaceHolderUI extends Plugin {
 }
 
 function getDropdownItemsDefinitions( placeholderNames ) {
-	console.log( placeholderNames );
 	const itemDefinitions = new Collection();
 
-	for ( const name of placeholderNames ) {
+	for ( const field of placeholderNames ) {
 		const definition = {
 			type: 'button',
 			model: new Model( {
-				commandParam: name,
-				label: name,
+				commandParam: field.value,
+				label: field.name,
 				withText: true
 			} )
 		};

@@ -66,7 +66,7 @@ export default class PlaceholderEditing extends Plugin {
 			const placeholderView = viewWriter.createContainerElement( 'span', {
 				class: 'placeholder'
 			} );
-			const innerText = viewWriter.createText( '{{' + name + '}}' );
+			const innerText = viewWriter.createText( name );
 			viewWriter.insert( viewWriter.createPositionAt( placeholderView, 0 ), innerText );
 			return placeholderView;
 		}

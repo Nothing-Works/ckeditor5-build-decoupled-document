@@ -1,5 +1,9 @@
+:root {
+	--ck-color-focus-border: hsl(0, 0%, 100%);
+}
+
 .placeholder {
-	background: #ffff00;
+	/* background: #ffff00; */
 	padding: 4px 2px;
 	outline-offset: -2px;
 	line-height: 1em;
