@@ -97,7 +97,7 @@ DecoupledEditor.defaultConfig = {
 			'insertTable',
 			'mediaEmbed',
 			'|',
-			'placeholder',
+			// 'placeholder',
 			'|',
 			'undo',
 			'redo'
