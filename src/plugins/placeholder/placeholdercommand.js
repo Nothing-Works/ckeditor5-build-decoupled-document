@@ -7,7 +7,7 @@ export default class PlaceholderCommand extends Command {
 			const placeholder = writer.createElement( 'placeholder', { name: value } );
 
 			editor.model.insertContent( placeholder );
-			writer.setSelection( placeholder, 'on' );
+			writer.setSelection( placeholder, 'after' );
 		} );
 	}
 
