@@ -171,9 +171,13 @@ Preserve the relative scale, though. */
 			</div>
 		</div>
 	</div>
+	<button onclick="save()">Click me</button>
 	<script src="../build/ckeditor.js"></script>
 	<script src="./data.js"></script>
 	<script>
+		function save() {
+			console.log(editor.getData());
+		}
 		const label = 'Insert Merge Field'
 		DecoupledEditor
 			.create(document.querySelector('.document-editor__editable'), {
