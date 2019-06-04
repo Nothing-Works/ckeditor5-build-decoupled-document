@@ -17,3 +17,8 @@
 .placeholderLabel .ck-button__label {
 	width: max-content !important;
 }
+
+.placeholderLabel .ck.ck-reset.ck-list {
+	overflow: auto;
+	max-height: 600px;
+}
