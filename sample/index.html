@@ -187,9 +187,11 @@ Preserve the relative scale, though. */
 				}
 			})
 			.then(editor => {
+				editor.setData(`<p><span class="placeholder">{{customerModel:CustomerGuid}}</span></p>`);
 				const toolbarContainer = document.querySelector('.document-editor__toolbar');
 				toolbarContainer.appendChild(editor.ui.view.toolbar.element);
 				window.editor = editor;
+
 			})
 			.catch(err => {
 				console.error(err);

@@ -34,16 +34,13 @@ export default class PlaceholderEditing extends Plugin {
 
 	_defineConverters() {
 		const conversion = this.editor.conversion;
-
 		conversion.for( 'upcast' ).elementToElement( {
-
 			view: {
 				name: 'span',
 				classes: [ 'placeholder' ]
 			},
 			model: ( viewElement, modelWriter ) => {
-				const name = viewElement.getChild( 0 ).data.slice( 1, -1 );
-
+				const name = viewElement.getChild( 0 ).data;
 				return modelWriter.createElement( 'placeholder', { name } );
 			}
 		} );
