@@ -1,5 +1,5 @@
 /**
- * @license Copyright (c) 2003-2019, CKSource - Frederico Knabben. All rights reserved.
+ * @license Copyright (c) 2003-2020, CKSource - Frederico Knabben. All rights reserved.
  * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
  */
 
@@ -45,6 +45,8 @@ describe( 'DecoupledEditor build', () => {
 					expect( newEditor.ui.view.element ).to.be.null;
 					expect( newEditor.ui.view.toolbar.element.parentElement ).to.be.null;
 					expect( newEditor.ui.view.editable.element.parentElement ).to.be.null;
+
+					return newEditor.destroy();
 				} );
 		} );
 	} );
@@ -56,6 +58,8 @@ describe( 'DecoupledEditor build', () => {
 			return DecoupledEditor.create( editorElement )
 				.then( newEditor => {
 					expect( newEditor.ui.view.editable.element.parentElement ).to.equal( document.body );
+
+					return newEditor.destroy();
 				} );
 		} );
 	} );
@@ -154,7 +158,7 @@ describe( 'DecoupledEditor build', () => {
 			} );
 
 			it( 'image works', () => {
-				const data = '<figure class="image"><img src="./manual/sample.jpg"></figure>';
+				const data = '<figure class="image"><img src="/assets/sample.png"></figure>';
 
 				editor.setData( data );
 				expect( editor.getData() ).to.equal( data );
@@ -188,6 +192,7 @@ describe( 'DecoupledEditor build', () => {
 
 				editor.setData( data );
 				expect( editor.getData() ).to.equal( data );
+				expect( editor.model.document.selection.getAttribute( 'fontSize' ) ).to.equal( 'big' );
 			} );
 
 			it( 'font family works', () => {
@@ -195,13 +200,23 @@ describe( 'DecoupledEditor build', () => {
 
 				editor.setData( data );
 				expect( editor.getData() ).to.equal( data );
+				expect( editor.model.document.selection.getAttribute( 'fontFamily' ) ).to.equal( 'Georgia' );
 			} );
 
-			it( 'highlight works', () => {
-				const data = '<p><mark class="marker-green">foo</mark></p>';
+			it( 'font background color works', () => {
+				const data = '<p><span style="background-color:hsl(60,75%,60%);">foo</span></p>';
 
 				editor.setData( data );
 				expect( editor.getData() ).to.equal( data );
+				expect( editor.model.document.selection.getAttribute( 'fontBackgroundColor' ) ).to.equal( 'hsl(60,75%,60%)' );
+			} );
+
+			it( 'font color works', () => {
+				const data = '<p><span style="color:hsl(0,75%,60%);">foo</span></p>';
+
+				editor.setData( data );
+				expect( editor.getData() ).to.equal( data );
+				expect( editor.model.document.selection.getAttribute( 'fontColor' ) ).to.equal( 'hsl(0,75%,60%)' );
 			} );
 
 			it( 'alignment works', () => {
