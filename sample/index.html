@@ -6,7 +6,7 @@
 	<title>CKEditor 5 – document editor build – development sample</title>
 	<style>
 		body {
-			max-width: 900px;
+			max-width: 1200px;
 			margin: 20px auto;
 		}
 
@@ -172,11 +172,13 @@ Preserve the relative scale, though. */
 		</div>
 	</div>
 	<button onclick="save()">Click me</button>
+	<script src="../node_modules/@ckeditor/ckeditor5-inspector/build/inspector.js"></script>
 	<script src="../build/ckeditor.js"></script>
 	<script src="./data.js"></script>
 	<script>
 		function save() {
 			console.log(editor.getData());
+			console.log(editor.Andy());
 		}
 		const label = 'Insert Merge Field'
 		DecoupledEditor
@@ -191,7 +193,7 @@ Preserve the relative scale, though. */
 				const toolbarContainer = document.querySelector('.document-editor__toolbar');
 				toolbarContainer.appendChild(editor.ui.view.toolbar.element);
 				window.editor = editor;
-
+				CKEditorInspector.attach(editor);
 			})
 			.catch(err => {
 				console.error(err);

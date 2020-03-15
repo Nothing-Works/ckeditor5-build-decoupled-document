@@ -42,6 +42,7 @@
     "@ckeditor/ckeditor5-highlight": "^17.0.0",
     "@ckeditor/ckeditor5-image": "^17.0.0",
     "@ckeditor/ckeditor5-indent": "^17.0.0",
+    "@ckeditor/ckeditor5-inspector": "^1.5.0",
     "@ckeditor/ckeditor5-link": "^17.0.0",
     "@ckeditor/ckeditor5-list": "^17.0.0",
     "@ckeditor/ckeditor5-media-embed": "^17.0.0",

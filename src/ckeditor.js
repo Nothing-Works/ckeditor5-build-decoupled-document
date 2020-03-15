@@ -16,8 +16,11 @@ import UploadAdapter from '@ckeditor/ckeditor5-adapter-ckfinder/src/uploadadapte
 import Autoformat from '@ckeditor/ckeditor5-autoformat/src/autoformat';
 import Bold from '@ckeditor/ckeditor5-basic-styles/src/bold';
 import Italic from '@ckeditor/ckeditor5-basic-styles/src/italic';
-import Strikethrough from '@ckeditor/ckeditor5-basic-styles/src/strikethrough';
 import Underline from '@ckeditor/ckeditor5-basic-styles/src/underline';
+import Strikethrough from '@ckeditor/ckeditor5-basic-styles/src/strikethrough';
+import Code from '@ckeditor/ckeditor5-basic-styles/src/code';
+import Subscript from '@ckeditor/ckeditor5-basic-styles/src/subscript';
+import Superscript from '@ckeditor/ckeditor5-basic-styles/src/superscript';
 import BlockQuote from '@ckeditor/ckeditor5-block-quote/src/blockquote';
 import CKFinder from '@ckeditor/ckeditor5-ckfinder/src/ckfinder';
 import EasyImage from '@ckeditor/ckeditor5-easy-image/src/easyimage';
@@ -38,6 +41,7 @@ import Table from '@ckeditor/ckeditor5-table/src/table';
 import TableToolbar from '@ckeditor/ckeditor5-table/src/tabletoolbar';
 import Base64UploadAdapter from './plugins/uploadadapter';
 import Placeholder from './plugins/placeholder/placeholder';
+import AddData from './plugins/conversion/adddata';
 
 export default class DecoupledEditor extends DecoupledEditorBase {}
 
@@ -53,8 +57,11 @@ DecoupledEditor.builtinPlugins = [
 	Autoformat,
 	Bold,
 	Italic,
-	Strikethrough,
 	Underline,
+	Strikethrough,
+	Code,
+	Subscript,
+	Superscript,
 	BlockQuote,
 	CKFinder,
 	EasyImage,
@@ -74,7 +81,8 @@ DecoupledEditor.builtinPlugins = [
 	Table,
 	TableToolbar,
 	Base64UploadAdapter,
-	Placeholder
+	Placeholder,
+	AddData
 ];
 
 // Editor configuration.
@@ -88,10 +96,7 @@ DecoupledEditor.defaultConfig = {
 			'fontColor',
 			'fontBackgroundColor',
 			'|',
-			'bold',
-			'italic',
-			'underline',
-			'strikethrough',
+			'bold', 'italic', 'underline', 'strikethrough', 'code', 'subscript', 'superscript',
 			'|',
 			'alignment',
 			'|',
