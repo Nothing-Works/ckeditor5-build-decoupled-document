@@ -41,7 +41,7 @@ import Table from '@ckeditor/ckeditor5-table/src/table';
 import TableToolbar from '@ckeditor/ckeditor5-table/src/tabletoolbar';
 import Base64UploadAdapter from './plugins/uploadadapter';
 import Placeholder from './plugins/placeholder/placeholder';
-import AddData from './plugins/conversion/adddata';
+import HtmlExtension from './plugins/extensions/htmlextension';
 
 export default class DecoupledEditor extends DecoupledEditorBase {}
 
@@ -82,7 +82,7 @@ DecoupledEditor.builtinPlugins = [
 	TableToolbar,
 	Base64UploadAdapter,
 	Placeholder,
-	AddData
+	HtmlExtension
 ];
 
 // Editor configuration.

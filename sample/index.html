@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-	<meta charset="utf-8">
+	<meta charset="utf-8" />
 	<title>CKEditor 5 – document editor build – development sample</title>
 	<style>
 		body {
@@ -32,7 +32,7 @@
 			z-index: 1;
 
 			/* Create the illusion of the toolbar floating over the editable. */
-			box-shadow: 0 0 5px hsla(0, 0%, 0%, .2);
+			box-shadow: 0 0 5px hsla(0, 0%, 0%, 0.2);
 
 			/* Use the CKEditor CSS variables to keep the UI consistent. */
 			border-bottom: 1px solid var(--ck-color-toolbar-border);
@@ -65,7 +65,7 @@
 			background: white;
 
 			/* The "page" should cast a slight shadow (3D illusion). */
-			box-shadow: 0 0 5px hsla(0, 0%, 0%, .1);
+			box-shadow: 0 0 5px hsla(0, 0%, 0%, 0.1);
 
 			/* Center the "page". */
 			margin: 0 auto;
@@ -74,8 +74,8 @@
 		.ck-content .image>figcaption {
 			color: #333;
 			background-color: #f7f7f7;
-			padding: .6em;
-			font-size: .75em;
+			padding: 0.6em;
+			font-size: 0.75em;
 			outline-offset: -1px;
 		}
 
@@ -111,8 +111,8 @@ Preserve the relative scale, though. */
 
 		.document-editor .ck-content h2 {
 			line-height: 1.37em;
-			padding-top: .342em;
-			margin-bottom: .142em;
+			padding-top: 0.342em;
+			margin-bottom: 0.142em;
 		}
 
 		/* Set the styles for "Heading 2". */
@@ -130,8 +130,8 @@ Preserve the relative scale, though. */
 		/* Set the styles for "Heading 2". */
 		.document-editor .ck-content h3 {
 			line-height: 1.86em;
-			padding-top: .171em;
-			margin-bottom: .357em;
+			padding-top: 0.171em;
+			margin-bottom: 0.357em;
 		}
 
 		/* Set the styles for "Heading 3". */
@@ -143,15 +143,15 @@ Preserve the relative scale, though. */
 
 		.document-editor .ck-content h4 {
 			line-height: 1.24em;
-			padding-top: .286em;
-			margin-bottom: .952em;
+			padding-top: 0.286em;
+			margin-bottom: 0.952em;
 		}
 
 		/* Set the styles for "Paragraph". */
 		.document-editor .ck-content p {
 			font-size: 1em;
 			line-height: 1.63em;
-			padding-top: .5em;
+			padding-top: 0.5em;
 			margin-bottom: 1.13em;
 		}
 
@@ -178,42 +178,28 @@ Preserve the relative scale, though. */
 	<script>
 		function save() {
 			console.log(editor.getData());
-			// console.log(editor.Andy());
+			console.log(editor.getHtml());
 		}
 
-		function Test(editor) {
-			editor.model.change(writer => {
-				console.log(editor.model.document.getRoot().toJSON());
-				// writer.setAttribute('foo', 'bar', a);
-				// console.log('test');
-			});
-
-			editor.conversion.for('dataDowncast').add(dispatcher => {
-				dispatcher.on('attribute:main', (evt, data, conversionApi) => {
-					console.log('test a');
-					// const viewWriter = conversionApi.writer;
-					// viewWriter.createUIElement('span');
-					// viewWriter.createUIElement('span', {
-					// 	id: 'foo-1234'
-					// });
-					// viewWriter.addClass('my-heading', conversionApi
-					// 	.mapper.toViewElement(data.item));
-				});
-			});
-		}
-		const label = 'Insert Merge Field'
-		DecoupledEditor
-			.create(document.querySelector('.document-editor__editable'), {
-				extraPlugins: [Test],
-				placeholderConfig: {
-					mergeFields,
-					label
+		const label = "Insert Merge Field";
+		DecoupledEditor.create(
+				document.querySelector(".document-editor__editable"), {
+					placeholderConfig: {
+						mergeFields,
+						label
+					}
 				}
-			})
+			)
 			.then(editor => {
-				editor.setData(`<p><span class="placeholder">{{customerModel:CustomerGuid}}</span></p>`);
-				const toolbarContainer = document.querySelector('.document-editor__toolbar');
-				toolbarContainer.appendChild(editor.ui.view.toolbar.element);
+				editor.setData(
+					`<p><span class="placeholder">{{customerModel:CustomerGuid}}</span></p>`
+				);
+				const toolbarContainer = document.querySelector(
+					".document-editor__toolbar"
+				);
+				toolbarContainer.appendChild(
+					editor.ui.view.toolbar.element
+				);
 				window.editor = editor;
 				CKEditorInspector.attach(editor);
 			})
