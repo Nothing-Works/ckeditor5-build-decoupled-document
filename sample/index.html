@@ -178,11 +178,33 @@ Preserve the relative scale, though. */
 	<script>
 		function save() {
 			console.log(editor.getData());
-			console.log(editor.Andy());
+			// console.log(editor.Andy());
+		}
+
+		function Test(editor) {
+			editor.model.change(writer => {
+				console.log(editor.model.document.getRoot().toJSON());
+				// writer.setAttribute('foo', 'bar', a);
+				// console.log('test');
+			});
+
+			editor.conversion.for('dataDowncast').add(dispatcher => {
+				dispatcher.on('attribute:main', (evt, data, conversionApi) => {
+					console.log('test a');
+					// const viewWriter = conversionApi.writer;
+					// viewWriter.createUIElement('span');
+					// viewWriter.createUIElement('span', {
+					// 	id: 'foo-1234'
+					// });
+					// viewWriter.addClass('my-heading', conversionApi
+					// 	.mapper.toViewElement(data.item));
+				});
+			});
 		}
 		const label = 'Insert Merge Field'
 		DecoupledEditor
 			.create(document.querySelector('.document-editor__editable'), {
+				extraPlugins: [Test],
 				placeholderConfig: {
 					mergeFields,
 					label
