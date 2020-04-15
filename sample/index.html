@@ -172,7 +172,6 @@ Preserve the relative scale, though. */
 		</div>
 	</div>
 	<button onclick="save()">Click me</button>
-	<script src="../node_modules/@ckeditor/ckeditor5-inspector/build/inspector.js"></script>
 	<script src="../build/ckeditor.js"></script>
 	<script src="./data.js"></script>
 	<script>
@@ -191,9 +190,18 @@ Preserve the relative scale, though. */
 				}
 			)
 			.then(editor => {
-				editor.setData(
-					`<p><span class="placeholder">{{customerModel:CustomerGuid}}</span></p>`
-				);
+				editor.setHtml(`<!doctype html>
+		<html lang="en">
+		  <head>
+			<meta charset="utf-8">
+			<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+			<title>CkEditor</title>
+			</head>
+			<body>
+				<p><span class="placeholder">{{customerModel:CustomerGuid}}</span></p>
+			</body>
+		</html>`);
 				const toolbarContainer = document.querySelector(
 					".document-editor__toolbar"
 				);
@@ -201,7 +209,6 @@ Preserve the relative scale, though. */
 					editor.ui.view.toolbar.element
 				);
 				window.editor = editor;
-				CKEditorInspector.attach(editor);
 			})
 			.catch(err => {
 				console.error(err);

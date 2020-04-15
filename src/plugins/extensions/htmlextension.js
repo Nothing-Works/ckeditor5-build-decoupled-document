@@ -3,10 +3,16 @@ import Editor from '@ckeditor/ckeditor5-core/src/editor/editor';
 
 export default class HtmlExtension extends Plugin {
 	init() {
-		Editor.prototype.getHtml = () => this.html();
+		Editor.prototype.getHtml = () => this.getHtml();
+
+		Editor.prototype.setHtml = data => this.setHtml( data );
 	}
 
-	html() {
+	setHtml( data ) {
+		this.editor.setData( data.match( this.pattern() ).join().trim() );
+	}
+
+	getHtml() {
 		return this.template().replace( this.pattern(), this.editor.getData() );
 	}
 
