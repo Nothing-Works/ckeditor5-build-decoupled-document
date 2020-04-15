@@ -9,7 +9,9 @@ export default class HtmlExtension extends Plugin {
 	}
 
 	setHtml( data ) {
-		this.editor.setData( data.match( this.pattern() ).join().trim() );
+		const matched = data.match( this.pattern() );
+		const final = matched === null ? '' : matched.join().trim();
+		this.editor.setData( final );
 	}
 
 	getHtml() {
